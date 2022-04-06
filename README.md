@@ -66,7 +66,7 @@ This section lists the minimum functionality of the Sender and Receiver.
 - uses console output to communicate the parameters.
 
 UML diagram:
-![UMLdiagram](interation_diagram(2).png)
+![UMLdiagram](interation_diagram (2).png)
 ### The Receiver
 
 - reads the parameters from the console input
