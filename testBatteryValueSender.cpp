@@ -1,6 +1,6 @@
 #define CATCH_CONFIG_MAIN
 #include "test/catch.hpp"
-#include "Sender/BatterySensorValueSender.cpp"
+#include "Sender/BatterySensorDataSender.h"
 
 SCENARIO("Test whether the random Sensor value generator is generating expected numbder of values")
 {
