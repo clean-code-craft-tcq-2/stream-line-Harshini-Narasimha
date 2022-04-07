@@ -27,7 +27,7 @@ SCENARIO("Test whether the random Sensor value generator is generating expected 
 
 SCENARIO("Test whether the battery sensor data values are generated properly")
 {
-    GIVEN("The batter parameters contain SOC and Temperature Sensor. The SOC value should be in range 20 to 80, temperature value should be in range -20 to 60. And the total count of values from each sensor is 100 ")
+    GIVEN("The battery parameters contain SOC and Temperature Sensor. The SOC value should be in range 20 to 80, temperature value should be in range -20 to 60. And the total count of values from each sensor is 100 ")
     {
         WHEN("The battery sensor values should be read in the beginning")
         {
@@ -59,7 +59,7 @@ SCENARIO("Test whether the sensorValueDisplayFormatter is formatting the values 
         {
             printSensorData printSensorDataObj;
             std::string formattedText = printSensorDataObj.sensorValueDisplayFormatter(10,-20);
-            THEN("Random sensor value list of size 100 within given range is generated")
+            THEN("The formatted string will be in CSV format, ie.value1,value2")
             {
                 std::string expectedText ="10,-20";
                 REQUIRE(formattedText == expectedText);
