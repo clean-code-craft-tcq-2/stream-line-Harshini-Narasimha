@@ -1,0 +1,4 @@
+#include "printBatterySensorValue.h"
+
+void displayBatterySensorValueList(batterySensorValue sensorValue,printSensorDataInterface &printSensorDataObject);
+bool sendBatteryParameterValues(printSensorDataInterface &printSensorDataObject);
