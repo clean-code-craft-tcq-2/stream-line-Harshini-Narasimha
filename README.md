@@ -63,7 +63,19 @@ This section lists the minimum functionality of the Sender and Receiver.
 - simulates and sends at least two Battery / Charging parameters
 - sends fifty readings in a stream
 - can either generate values for the parameters, or read from a file
-- uses console output to communicate the parameters.
+- uses console output to communicate the parameters, ie. SOC, temperature
+
+Eg: **Input**
+
+    SOC value: 30,35,45,25
+    Temp value: -10,30,32,35
+    
+    **Output**
+    30,-10
+    35,30
+    45,32
+    25,35
+    
 
 **Assumptions:**
 1. Two sensors: Temperature and SOC sensor will generate 100 readings each. Temperature value is generated between -20 to 60. SOC data is generated between 20-80.
