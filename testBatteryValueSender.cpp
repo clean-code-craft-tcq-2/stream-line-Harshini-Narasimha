@@ -2,7 +2,7 @@
 #include "test/catch.hpp"
 #include "Sender/BatterySensorDataSender.h"
 
-SCENARIO("Test whether the random Sensor value generator is generating expected numbder of values")
+SCENARIO("Test whether the random Sensor value generator is generating expected numbder of values") 
 {
     GIVEN("The maximum value 50, minimum value 1 and maximum count of values to be generated 100")
     {
