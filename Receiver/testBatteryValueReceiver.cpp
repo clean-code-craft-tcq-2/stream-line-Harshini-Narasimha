@@ -12,3 +12,8 @@ TEST_CASE("Average Data OneByone ") {
   int lastStoredAverageValue= 100;
   REQUIRE(averageDataOneByone(20,lastStoredAverageValue, 45) == 25);
 }
+
+TEST_CASE("Average Data OneByone with 0") {
+  int lastStoredAverageValue= 0;
+  REQUIRE(averageDataOneByone(0,0, 0) == 0);
+}
