@@ -6,3 +6,9 @@ TEST_CASE("Fetches data from a sensor and writtens to CSV FilE and tests the val
   bool expectedOutput = true;
   REQUIRE(readFromConsole() == expectedOutput);
 }
+
+
+TEST_CASE("Average Data OneByone ") {
+  int lastStoredAverageValue= 100
+  REQUIRE(averageDataOneByone(20,45, &lastStoredAverageValue) == 25);
+}
