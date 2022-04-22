@@ -78,7 +78,7 @@ void calculateSensorValues() {
     }
 }
 
-void ReadFromConsole() {
+void readFromConsole() {
     while (std::getline(std::cin, receivedInput)) {
         count++;
         if (receivedInput.find(stopingDelimeter) != std::string::npos)  {
