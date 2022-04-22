@@ -13,8 +13,14 @@ TEST_CASE("Test to separate the data ") {
   receivedSOCData.clear();
   receivedTempData.clear();
   separateData(inputData);
+
   REQUIRE(receivedSOCData.at(0)== 25);
   REQUIRE(receivedTempData.at(0)== 50);
+  
+  std::string inputData1 = "30,-60";
+  separateData(inputData1);
+  REQUIRE(receivedSOCData.at(1)== 30);
+  REQUIRE(receivedTempData.at(1)== -60);
 }
 
 TEST_CASE("Tests Average with positive values") {
