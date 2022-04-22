@@ -19,13 +19,13 @@ jobs:
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o  testcheckerSend ./Sender/testBatteryValueSender*.cpp
     
     - name: buildReceiver
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testcheckerSendReceiver ./Receiver/testBatteryValueReceiver *.cpp
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testcheckerReceiver ./Receiver/testBatteryValueReceiver*.cpp
       
     - name: run
       run: ./testcheckerSend
       
     - name: Pipeline sender/receiver
-      run: ./testcheckerSend | ./testcheckerSendReceiver
+      run: ./testcheckerSend | ./testcheckerReceiver
       
 
     - name: collect coverage
