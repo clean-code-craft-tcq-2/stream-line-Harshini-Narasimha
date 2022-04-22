@@ -23,6 +23,22 @@ TEST_CASE("Test to separate the data ") {
   REQUIRE(receivedTempData.at(1)== -60);
 }
 
+TEST_CASE("Test Minimum Values ") {
+  REQUIRE(getMinValue(0,-1) == -1);
+  REQUIRE(getMinValue(-1,1) == -1);
+  REQUIRE(getMinValue(0,0) == 0);
+  REQUIRE(getMinValue(-1,-5) == 0);
+  REQUIRE(getMinValue(5, 10) == 0);
+}
+
+TEST_CASE("Test Maximum Values ") {
+  REQUIRE(getMaxValue(0,-1) == 0);
+  REQUIRE(getMaxValue(-1,1) == 1);
+  REQUIRE(getMaxValue(0,0) == 0);
+  REQUIRE(getMaxValue(-1,-5) == -1);
+  REQUIRE(getMaxValue(5, 10) == 10);
+}
+
 TEST_CASE("Tests Average with positive values") {
   const std::vector<int> receivedInputData = {1,2,3,4,5};
   int storedLastFourValues = 0;
