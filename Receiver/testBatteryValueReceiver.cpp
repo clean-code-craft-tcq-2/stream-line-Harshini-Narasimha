@@ -10,7 +10,7 @@ TEST_CASE("Fetches data from a console, checks the conditions and writes in the 
 
 TEST_CASE("Test to separate the data ") {
   std::string inputData = "25,50";  
-  separateData(inputData)
+  separateData(inputData);
   REQUIRE(receivedSOCData.at(0)== 25);
   REQUIRE(receivedTempData.at(0)== 50);
 
