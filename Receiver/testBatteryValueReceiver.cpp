@@ -7,9 +7,13 @@ TEST_CASE("Fetches data from a sensor and writtens to CSV FilE and tests the val
   REQUIRE(readFromConsole() == expectedOutput);
 }
 
-TEST_CASE("Average Data OneByone ") {
+TEST_CASE("Test Average   ") {
   int lastStoredAverageValue= 100;
   REQUIRE(averageDataOneByone(20,lastStoredAverageValue, 45) == 25);
+
+  const std::vector<int> receivedInputData = "1,2,3,4,5";
+  int storedLastFourValues = 0;
+  REQUIRE( averageData(receivedInputData, storedLastFourValues)  == 3);
 }
 
 TEST_CASE("Average Data OneByone with 0") {
