@@ -7,7 +7,7 @@ TEST_CASE("Fetches data from a sensor and writtens to CSV FilE and tests the val
   REQUIRE(readFromConsole() == expectedOutput);
 }
 
-TEST_CASE("Test Average   ") {
+TEST_CASE("Tests Average") {
   int lastStoredAverageValue= 100;
   REQUIRE(averageDataOneByone(20,lastStoredAverageValue, 45) == 25);
 
@@ -15,12 +15,20 @@ TEST_CASE("Test Average   ") {
   int storedLastFourValues = 0;
   REQUIRE( averageData(receivedInputData, storedLastFourValues)  == 3);
   REQUIRE(averageDataOneByone(1,storedLastFourValues, 26) == 8);
+
+  const std::vector<int> receivedInputData1 = {49,74,23,74,27};
+  int storedLastFourValues1 = 0;
+  REQUIRE( averageData(receivedInputData1, storedLastFourValues1)  == 49);
+  REQUIRE(averageDataOneByone(49,storedLastFourValues1, 69) == 53);
+   REQUIRE(averageDataOneByone(74,storedLastFourValues1, 67) == 52);
+  
+  
 }
 
 TEST_CASE("Average Data OneByone with 0") {
   int lastStoredAverageValue0= 0;
   REQUIRE(averageDataOneByone(0,lastStoredAverageValue0, 0) == 0);
-   const std::vector<int> receivedInputData = {0,0,0,0,0};
+  const std::vector<int> receivedInputData = {0,0,0,0,0};
   int storedLastFourValues = 0;
   REQUIRE( averageData(receivedInputData, storedLastFourValues)  == 0);
   REQUIRE(averageDataOneByone(0,storedLastFourValues, 0) == 0);
