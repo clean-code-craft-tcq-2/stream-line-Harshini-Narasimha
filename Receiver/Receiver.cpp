@@ -69,7 +69,8 @@ std::string formatPrintData(int count, int minimumSocValue, int maximumSocValue,
 {
     std::ostringstream os;
     auto cout_buff = std::cout.rdbuf(os.rdbuf());
-    std::cout << count << "," << minimumSocValue << "," << maximumSocValue << "," << socAverage << "," << minimumTempValue << "," << maximumTempValue << "," << TempAverage << "\n";    cout.rdbuf(cout_buff);
+    std::cout << count << "," << minimumSocValue << "," << maximumSocValue << "," << socAverage << "," << minimumTempValue << "," << maximumTempValue << "," << TempAverage << "\n";    
+    std::cout.rdbuf(cout_buff);
     std::string formattedString = os.str();
     return formattedString;
 }
