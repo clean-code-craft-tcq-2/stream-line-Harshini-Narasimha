@@ -8,7 +8,7 @@ void testFormattedData(std::string actualData, std::string expectedFormatData)
 }
 
 TEST_CASE("Tests the format of the data ") {
-  testFormattedData(formatPrintData(1,0,100,50,-40,40,0),"1,0,100,50,-40,40,0");
+  testFormattedData(formatPrintData(1,0,100,50,-40,40,0),"1,0,100,50,-40,40,0\n");
 }
 
 TEST_CASE("Fetches data from a console, checks the conditions and writes in the csv file") {
