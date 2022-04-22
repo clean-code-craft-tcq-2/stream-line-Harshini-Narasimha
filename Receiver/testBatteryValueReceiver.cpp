@@ -14,7 +14,7 @@ TEST_CASE("Test Average   ") {
   const std::vector<int> receivedInputData = {1,2,3,4,5};
   int storedLastFourValues = 0;
   REQUIRE( averageData(receivedInputData, storedLastFourValues)  == 3);
-  REQUIRE(averageDataOneByone(1,storedLastFourValues, 26) == 7);
+  REQUIRE(averageDataOneByone(1,storedLastFourValues, 26) == 8);
 }
 
 TEST_CASE("Average Data OneByone with 0") {
