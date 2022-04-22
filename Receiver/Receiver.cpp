@@ -64,7 +64,14 @@ int averageDataOneByone(int startingValue, int &storedTotalValues, int lastRecei
     storedTotalValues += lastReceivedData;
     return (storedTotalValues / NUMBEROFVALUES);
 }
-
+std::string formatPrintData(int count, int minimumSocValue, int maximumSocValue, int socAverage, int minimumTempValue, int maximumTempValue, int TempAverage)
+{
+    ostringstream os;
+    auto cout_buff = cout.rdbuf(os.rdbuf());
+    cout << count << "," << minimumSocValue << "," << maximumSocValue << "," << socAverage << "," << minimumTempValue << "," << maximumTempValue << "," << TempAverage << "\n";    cout.rdbuf(cout_buff);
+    std::string formattedString = os.str();
+    return formattedString;
+}
 void calculateSensorValues()
 {
     minSocValue = getMinValue<int>(lastReceivedSocData, minSocValue);
@@ -77,13 +84,16 @@ void calculateSensorValues()
     {
         socAverage = averageData(receivedSOCData, totalOfLastSocValues);
         TempAverage = averageData(receivedTempData, totalOfLastTempValues);
-        writeData.printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
+        //writeData.printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
+        //writeData.printBMSReceiverData(formattedString);
     }
     else if (count > NUMBEROFVALUES)
     {
         socAverage = averageDataOneByone(receivedSOCData.at(count - NUMBEROFVALUES), totalOfLastSocValues, lastReceivedSocData);
         TempAverage = averageDataOneByone(receivedTempData.at(count - NUMBEROFVALUES), totalOfLastTempValues, lastReceivedTempData);
-        writeData.printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
+       // writeData.printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
+        std::string formattedString = printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
+        writeData.printBMSReceiverData(formattedString);
     }
 }
 
