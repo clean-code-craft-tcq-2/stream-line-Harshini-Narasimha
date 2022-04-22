@@ -12,7 +12,7 @@ private:
 public:
     WriteDataToCSV()
     {
-        BmsReceiverDataFile.open("BmsReceiverData.csv", std::ios::out | std::ios::trunc);
+        BmsReceiverDataFile.open("BmsReceiverProcessedData.csv", std::ios::out | std::ios::trunc);
         BmsReceiverDataFile << "count, Soc Maximum, SOC Minimum, Temperature Maximum, Temperature Minimum, Temperature Soc Average , Soc Average, \n";
     }
 
