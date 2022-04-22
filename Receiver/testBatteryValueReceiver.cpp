@@ -22,6 +22,14 @@ TEST_CASE("Test to separate the data ") {
   REQUIRE(receivedSOCData.at(1)== 30);
   REQUIRE(receivedTempData.at(1)== -60);
 }
+void testFormattedData(std::string actualData, std::string expectedFormatData)
+{
+	assert(actualData.compare(expectedFormatData) == 0);
+}
+
+TEST_CASE("Tests the format of the data ") {
+  testFormattedData(formatPrintData(1,0,100,50,-40,40,0),"1,0,100,50,-40,40,0");
+}
 
 TEST_CASE("Test Minimum Values ") {
   REQUIRE(getMinValue(0,-1) == -1);
