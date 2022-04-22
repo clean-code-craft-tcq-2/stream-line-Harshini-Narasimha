@@ -1,5 +1,5 @@
 #define CATCH_CONFIG_MAIN
-#include "test/catch.hpp"
+#include "Sender/test/catch.hpp"
 #include "Sender/BatterySensorDataSender.h"
 
 // SCENARIO("Test whether the battery sensor data values are generated properly")
