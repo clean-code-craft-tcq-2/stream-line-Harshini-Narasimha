@@ -21,9 +21,14 @@ public:
         BmsReceiverDataFile.flush();
         BmsReceiverDataFile.close();
     }
-  void printBMSReceiverData(int count, int minimumSocValue, int maximumSocValue, int socAverage, int minimumTempValue, int maximumTempValue, int TempAverage) 
+//   void printBMSReceiverData(int count, int minimumSocValue, int maximumSocValue, int socAverage, int minimumTempValue, int maximumTempValue, int TempAverage) 
+//   {  
+//     BmsReceiverDataFile << count << "," << minimumSocValue << "," << maximumSocValue << "," << socAverage << "," << minimumTempValue << "," << maximumTempValue << "," << TempAverage << "\n";
+//    }
+    
+      void printBMSReceiverData(std::string formattedString) 
   {  
-    BmsReceiverDataFile << count << "," << minimumSocValue << "," << maximumSocValue << "," << socAverage << "," << minimumTempValue << "," << maximumTempValue << "," << TempAverage << "\n";
+    BmsReceiverDataFile <<formattedString<< "\n";
    }
 };
 #endif
