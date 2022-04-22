@@ -15,20 +15,23 @@ const int NUMBEROFVALUES = 5;
 int maxSocValue = INT_MIN, minSocValue = INT_MAX;
 int maxTempValue = INT_MIN, minTempValue = INT_MAX;
 int lastReceivedSocData = 0, lastReceivedTempData = 0;
-int totalOfLastFourSocValues = 0, totalOfLastTempValues = 0;
+int totalOfLastSocValues = 0, totalOfLastTempValues = 0;
 WriteDataToCSV writeData;
 
 template <typename Tmax>
-Tmax getMaxValue(Tmax lastReceivedData, Tmax currentMaxvalue) {
+Tmax getMaxValue(Tmax lastReceivedData, Tmax currentMaxvalue)
+{
     return (lastReceivedData > currentMaxvalue) ? lastReceivedData : currentMaxvalue;
 }
 
 template <typename Tmin>
-Tmin getMinValue(Tmin lastReceivedData, Tmin currentMinvalue) {
+Tmin getMinValue(Tmin lastReceivedData, Tmin currentMinvalue)
+{
     return (lastReceivedData < currentMinvalue) ? lastReceivedData : currentMinvalue;
 }
 
-void separateData(std::string receivedInput) {
+void separateData(std::string receivedInput)
+{
     int pos = receivedInput.find(seperatorDelimeter);
     std::stringstream firstData(receivedInput.substr(0, pos));
     std::stringstream secondData(receivedInput.substr(pos + 1, receivedInput.length() - 1));
@@ -40,55 +43,65 @@ void separateData(std::string receivedInput) {
     receivedTempData.push_back(lastReceivedTempData);
 }
 
-int averageData(const std::vector<int> receivedInputData, int &storedLastFourValues) {
+int averageData(const std::vector<int> receivedInputData, int &storedTotalValues)
+{
     int total;
-    try {
+    try
+    {
         int startingIndex = 0;
         total = std::accumulate(receivedInputData.begin(), receivedInputData.end(), 0L);
-        storedLastFourValues = total - receivedInputData.at(startingIndex);
+        storedTotalValues = total;
     }
-    catch (const std::out_of_range &ex) {
+    catch (const std::out_of_range &ex)
+    {
         std::cout << "out_of_range Exception Caught :: " << ex.what() << std::endl;
     }
     return (total / NUMBEROFVALUES);
 }
 
-int averageDataOneByone(int startingValue, int &storedLastFourValues, int lastReceivedData) {
-    storedLastFourValues -= startingValue;
-    storedLastFourValues += lastReceivedData;
-    return (storedLastFourValues / NUMBEROFVALUES);
+int averageDataOneByone(int startingValue, int &storedTotalValues, int lastReceivedData)
+{
+    storedTotalValues -= startingValue;
+    storedTotalValues += lastReceivedData;
+    return (storedTotalValues / NUMBEROFVALUES);
 }
 
-void calculateSensorValues() {
+void calculateSensorValues()
+{
     minSocValue = getMinValue<int>(lastReceivedSocData, minSocValue);
     maxSocValue = getMaxValue<int>(lastReceivedSocData, maxSocValue);
     minTempValue = getMinValue<int>(lastReceivedTempData, minTempValue);
     maxTempValue = getMaxValue<int>(lastReceivedTempData, maxTempValue);
     int socAverage = 0, TempAverage = 0;
 
-    if (count == NUMBEROFVALUES) {
-        socAverage = averageData(receivedSOCData, totalOfLastFourSocValues);
+    if (count == NUMBEROFVALUES)
+    {
+        socAverage = averageData(receivedSOCData, totalOfLastSocValues);
         TempAverage = averageData(receivedTempData, totalOfLastTempValues);
         writeData.printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
     }
-    else if (count > NUMBEROFVALUES) {
-        socAverage = averageDataOneByone(receivedSOCData.at(count - NUMBEROFVALUES), totalOfLastFourSocValues, lastReceivedSocData);
+    else if (count > NUMBEROFVALUES)
+    {
+        socAverage = averageDataOneByone(receivedSOCData.at(count - NUMBEROFVALUES), totalOfLastSocValues, lastReceivedSocData);
         TempAverage = averageDataOneByone(receivedTempData.at(count - NUMBEROFVALUES), totalOfLastTempValues, lastReceivedTempData);
         writeData.printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
     }
 }
 
-bool readFromConsole() {
-    while (std::getline(std::cin, receivedInput)) {
+bool readFromConsole()
+{
+    while (std::getline(std::cin, receivedInput))
+    {
         count++;
-        if (receivedInput.find(stopingDelimeter) != std::string::npos)  {
+        if (receivedInput.find(stopingDelimeter) != std::string::npos)
+        {
             break;
         }
-        else {
+        else
+        {
             separateData(receivedInput);
             calculateSensorValues();
         }
     }
     return true;
 }
-
