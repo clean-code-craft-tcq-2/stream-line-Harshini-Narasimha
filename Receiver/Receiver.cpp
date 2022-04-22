@@ -53,10 +53,10 @@ int averageData(const std::vector<int> receivedInputData, int &storedLastFourVal
     return (total / NUMBEROFVALUES);
 }
 
-int averageDataOneByone(int startingValue, int lastlastReceivedData, int &storedLastFourValues) {
+int averageDataOneByone(int startingValue, int &storedLastFourValues, int lastReceivedData) {
     storedLastFourValues -= startingValue;
-    storedLastFourValues += lastlastReceivedData;
-    return (storedLastFourValues / NUMBEROFVALUES);
+    storedLastFourValues += lastReceivedData;
+    return (storedLastFourValues + lastReceivedData / NUMBEROFVALUES);
 }
 
 void calculateSensorValues() {
