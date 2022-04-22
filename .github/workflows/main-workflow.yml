@@ -19,13 +19,13 @@ jobs:
       run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testchecker *.c*
       
     - name: buildReceiver
-      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testCheckerReceiver *.c*
+      run: g++ -Wall -Wextra -fprofile-arcs -ftest-coverage -o testBatteryValueReceiver *.cpp
       
     - name: run
-      run: ./testchecker
+      run: ./testBatteryValueReceiver
       
     - name: Pipeline sender/receiver
-      run: ./testchecker | ./testCheckerReceiver
+      run: ./testchecker | ./testBatteryValueReceiver
 
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
