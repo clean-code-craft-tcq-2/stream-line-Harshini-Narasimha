@@ -4,7 +4,7 @@
 #include <vector>
 #include <iomanip>
 #include <sstream>
-using namespace std;
+
 
 std::string receivedInput;
 std::string seperatorDelimeter = ",";
@@ -67,7 +67,7 @@ int averageDataOneByone(int startingValue, int &storedTotalValues, int lastRecei
 }
 std::string formatPrintData(int count, int minimumSocValue, int maximumSocValue, int socAverage, int minimumTempValue, int maximumTempValue, int TempAverage)
 {
-    ostringstream os;
+    std::ostringstream os;
     auto cout_buff = cout.rdbuf(os.rdbuf());
     cout << count << "," << minimumSocValue << "," << maximumSocValue << "," << socAverage << "," << minimumTempValue << "," << maximumTempValue << "," << TempAverage << "\n";    cout.rdbuf(cout_buff);
     std::string formattedString = os.str();
