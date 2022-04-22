@@ -92,7 +92,7 @@ bool readFromConsole()
     while (std::getline(std::cin, receivedInput))
     {
         count++;
-        if (receivedInput.find(stopingDelimeter) != std::string::npos)
+        if (receivedInput.find(stopingDelimeter) != std::string::npos) 
         {
             break;
         }
