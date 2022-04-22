@@ -7,13 +7,12 @@ TEST_CASE("Fetches data from a sensor and writtens to CSV FilE and tests the val
   REQUIRE(readFromConsole() == expectedOutput);
 }
 
-
 TEST_CASE("Average Data OneByone ") {
   int lastStoredAverageValue= 100;
   REQUIRE(averageDataOneByone(20,lastStoredAverageValue, 45) == 25);
 }
 
 TEST_CASE("Average Data OneByone with 0") {
-  int lastStoredAverageValue= 0;
-  REQUIRE(averageDataOneByone(0,0, 0) == 0);
+  int lastStoredAverageValue0= 0;
+  REQUIRE(averageDataOneByone(0,lastStoredAverageValue0, 0) == 0);
 }
