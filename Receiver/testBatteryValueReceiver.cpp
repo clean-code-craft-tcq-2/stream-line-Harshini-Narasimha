@@ -27,8 +27,8 @@ TEST_CASE("Test Minimum Values ") {
   REQUIRE(getMinValue(0,-1) == -1);
   REQUIRE(getMinValue(-1,1) == -1);
   REQUIRE(getMinValue(0,0) == 0);
-  REQUIRE(getMinValue(-1,-5) == 0);
-  REQUIRE(getMinValue(5, 10) == 0);
+  REQUIRE(getMinValue(-1,-5) == -5);
+  REQUIRE(getMinValue(5, 10) == 5);
 }
 
 TEST_CASE("Test Maximum Values ") {
