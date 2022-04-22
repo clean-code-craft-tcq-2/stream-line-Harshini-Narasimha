@@ -48,7 +48,6 @@ int averageData(const std::vector<int> receivedInputData, int &storedTotalValues
     int total;
     try
     {
-        int startingIndex = 0;
         total = std::accumulate(receivedInputData.begin(), receivedInputData.end(), 0L);
         storedTotalValues = total;
     }
