@@ -2,8 +2,7 @@
 #include "test/catch.hpp"
 #include "Receiver.cpp"
 #include <iostream>
-void testFormattedData(std::string actualData, std::string expectedFormatData)
-{
+void testFormattedData(std::string actualData, std::string expectedFormatData) {
     assert(actualData.compare(expectedFormatData) == 0);
 }
 
