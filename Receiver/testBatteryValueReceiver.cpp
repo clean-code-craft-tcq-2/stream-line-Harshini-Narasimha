@@ -10,5 +10,5 @@ TEST_CASE("Fetches data from a sensor and writtens to CSV FilE and tests the val
 
 TEST_CASE("Average Data OneByone ") {
   int lastStoredAverageValue= 100
-  REQUIRE(averageDataOneByone(20,&lastStoredAverageValue, 45) == 25);
+  REQUIRE(averageDataOneByone(20,lastStoredAverageValue, 45) == 25);
 }
