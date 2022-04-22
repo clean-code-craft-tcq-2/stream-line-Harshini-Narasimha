@@ -4,6 +4,7 @@
 #include <vector>
 #include <iomanip>
 #include <sstream>
+using namespace std;
 
 std::string receivedInput;
 std::string seperatorDelimeter = ",";
@@ -92,7 +93,7 @@ void calculateSensorValues()
         socAverage = averageDataOneByone(receivedSOCData.at(count - NUMBEROFVALUES), totalOfLastSocValues, lastReceivedSocData);
         TempAverage = averageDataOneByone(receivedTempData.at(count - NUMBEROFVALUES), totalOfLastTempValues, lastReceivedTempData);
        // writeData.printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
-        std::string formattedString = printBMSReceiverData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
+        std::string formattedString = formatPrintData(count, minSocValue, maxSocValue, socAverage, minTempValue, maxTempValue, TempAverage);
         writeData.printBMSReceiverData(formattedString);
     }
 }
