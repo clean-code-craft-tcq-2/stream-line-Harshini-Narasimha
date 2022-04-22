@@ -2,9 +2,18 @@
 #include "test/catch.hpp"
 #include "Receiver.cpp"
 
-TEST_CASE("Fetches data from a sensor and writtens to CSV FilE and tests the values reading from the CSV file ") {
+TEST_CASE("Fetches data from a console, checks the conditions and writes in the csv file") {
   bool expectedOutput = true;
   REQUIRE(readFromConsole() == expectedOutput);
+}
+
+TEST_CASE("Test to separate the data ") {
+  string inputData = "25,50";
+  
+  separateData(inputData)
+  REQUIRE(receivedSOCData.at(0)== 25);
+  REQUIRE(receivedTempData.at(0)== 50);
+
 }
 
 TEST_CASE("Tests Average with positive values") {
