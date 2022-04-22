@@ -1,6 +1,7 @@
 #define CATCH_CONFIG_MAIN
 #include "test/catch.hpp"
 #include "Receiver.cpp"
+#include <iostream>
 
 TEST_CASE("Fetches data from a console, checks the conditions and writes in the csv file") {
   bool expectedOutput = true;
@@ -8,8 +9,7 @@ TEST_CASE("Fetches data from a console, checks the conditions and writes in the 
 }
 
 TEST_CASE("Test to separate the data ") {
-  string inputData = "25,50";
-  
+  std::string inputData = "25,50";  
   separateData(inputData)
   REQUIRE(receivedSOCData.at(0)== 25);
   REQUIRE(receivedTempData.at(0)== 50);
