@@ -33,7 +33,7 @@ TEST_CASE("Tests Average with negative values") {
   const std::vector<int> receivedInputData = {-1,-2,-3,-4,-5};
   int storedLastFourValues = 0;
   REQUIRE( averageData(receivedInputData, storedLastFourValues)  == -3);
-  REQUIRE(averageDataOneByone(1,storedLastFourValues, 26) == -8);
+  REQUIRE(averageDataOneByone(1,storedLastFourValues, -26) == -8);
 
   const std::vector<int> receivedInputData1 = {-49,-74,-23,-74,-27};
   int storedLastFourValues1 = 0;
