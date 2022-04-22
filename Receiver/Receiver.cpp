@@ -11,7 +11,7 @@ std::string seperatorDelimeter = ",";
 std::string stopingDelimeter = "=";
 std::vector<int> receivedSOCData;
 std::vector<int> receivedTempData;
-static int count = 0;
+int count = 0;
 const int NUMBEROFVALUES = 5;
 int maxSocValue = INT_MIN, minSocValue = INT_MAX;
 int maxTempValue = INT_MIN, minTempValue = INT_MAX;
