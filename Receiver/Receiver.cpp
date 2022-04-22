@@ -68,8 +68,8 @@ int averageDataOneByone(int startingValue, int &storedTotalValues, int lastRecei
 std::string formatPrintData(int count, int minimumSocValue, int maximumSocValue, int socAverage, int minimumTempValue, int maximumTempValue, int TempAverage)
 {
     std::ostringstream os;
-    auto cout_buff = cout.rdbuf(os.rdbuf());
-    cout << count << "," << minimumSocValue << "," << maximumSocValue << "," << socAverage << "," << minimumTempValue << "," << maximumTempValue << "," << TempAverage << "\n";    cout.rdbuf(cout_buff);
+    auto cout_buff = std::cout.rdbuf(os.rdbuf());
+    std::cout << count << "," << minimumSocValue << "," << maximumSocValue << "," << socAverage << "," << minimumTempValue << "," << maximumTempValue << "," << TempAverage << "\n";    cout.rdbuf(cout_buff);
     std::string formattedString = os.str();
     return formattedString;
 }
