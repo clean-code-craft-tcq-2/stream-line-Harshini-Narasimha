@@ -46,17 +46,15 @@ void separateData(std::string receivedInput)
 
 int averageData(const std::vector<int> receivedInputData, int &storedTotalValues)
 {
-    int total;
     try
-    {
-        total = std::accumulate(receivedInputData.begin(), receivedInputData.end(), 0L);
-        storedTotalValues = total;
+    {    
+        storedTotalValues = std::accumulate(receivedInputData.begin(), receivedInputData.end(), 0L);
     }
     catch (const std::out_of_range &ex)
     {
         std::cout << "out_of_range Exception Caught :: " << ex.what() << std::endl;
     }
-    return (total / NUMBEROFVALUES);
+    return (storedTotalValues / NUMBEROFVALUES);
 }
 
 int averageDataOneByone(int startingValue, int &storedTotalValues, int lastReceivedData)
